@@ -113,7 +113,7 @@ CH341SER.VXD, , , 2
 
 [CH341SER.CopyFiles.DLL]
 CH341PT.DLL, , , 2
-;��װDLL�ǿ�ѡ��,DLL��������ʶ��CH341�˿ںͼ���CH341�˿ڵĲ���¼�
+;安装DLL是可选的,DLL可以用于识别CH341端口和监视CH341端口的插拔事件
 
 [CH341SER.9X.AddReg]
 HKR, , DevLoader, , *NTKERN
@@ -124,7 +124,7 @@ HKR,,EnumPropPages32,,"MsPorts.dll,SerialPortPropPageProvider"
 
 [CH341SER.NT.HW.AddReg]
 ;HKR,,"UpperFilters",0x00010000,"serenum"
-;������������ö�ٽ��ڴ��ڵļ��弴���豸,����ʱ������DTR��RTS�ź�,�����Ҫö��,�뽫�������еķֺ�ȥ��
+;上面这行用于枚举接在串口的即插即用设备,启动时将产生DTR和RTS信号,如果需要枚举,请将上面这行的分号去掉
 
 [CH341S98.9X.AddReg]
 HKR, , DevLoader, , *vcomm
@@ -135,14 +135,14 @@ HKR, , DCB, 3, 1C,00,00,00, 80,25,00,00, 11,00,00,00, 00,00,0A,00, 0A,00,08,00, 
 HKR, , PortSubClass, 1, 01
 HKR, , EnumPropPages, , "serialui.dll,EnumPropPages"
 ;HKR, , Enumerator, , serenum.vxd
-;������������ö�ٽ��ڴ��ڵļ��弴���豸,����ʱ������DTR��RTS�ź�,�����Ҫö��,�뽫�������еķֺ�ȥ��
+;上面这行用于枚举接在串口的即插即用设备,启动时将产生DTR和RTS信号,如果需要枚举,请将上面这行的分号去掉
 
 [CH341SER.AddReg]
 HKLM, SOFTWARE\WinChipHead\IC\CH341SER, WDM, 0x00010001, 0x00000034
 HKLM, SOFTWARE\WinChipHead\IC\CH341PORT, DLL, 0x00010001, 0x00000010
 HKLM, SOFTWARE\WinChipHead\IC\CH341SER, Function, , "USB=>Serial"
 ;HKLM, SYSTEM\CurrentControlSet\Services\CH341SER, UserRemoval, 0x00010001, 0x00000001
-;��������������ϵͳ��������ʾ����ȫɾ��USBתSERIALӲ���豸���������û��ֹ�ɾ��Ӳ��
+;上面这行用于在系统托盘中显示“安全删除USB转SERIAL硬件设备”，便于用户手工删除硬件
 
 [CH341S98.AddReg]
 HKLM, SOFTWARE\WinChipHead\IC\CH341SER, VXD, 0x00010001, 0x00000023
