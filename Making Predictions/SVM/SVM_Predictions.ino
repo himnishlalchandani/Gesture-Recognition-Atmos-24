@@ -22,7 +22,14 @@ void loop() {
 
     int prediction = predict(features);
     
-    Serial.println(prediction); // 0 for walking, 1 for jogging
+    // Print either "Walking" or "Jogging" based on the prediction
+    if (prediction == 1) {
+        Serial.println("Jogging");
+    } else if (prediction == 0) {
+        Serial.println("Walking");
+    } else {
+        Serial.println("Unknown prediction");
+    }
 
     delay(1000);
 }
@@ -34,5 +41,6 @@ int predict(float* features) {
     }
     sum += intercept;
 
+    // Return 1 for Jogging (sum > 0) and 0 for Walking (sum <= 0)
     return (sum > 0) ? 1 : 0;
 }
